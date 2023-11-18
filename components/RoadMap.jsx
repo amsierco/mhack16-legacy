@@ -1,4 +1,4 @@
-import React, {useState} from 'React';
+import React, {useState} from 'react';
 
 // Import css
 import './RoadMap';

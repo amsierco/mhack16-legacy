@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from "react"
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import OpenAI from 'openai'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -33,26 +34,30 @@ export default function LandingPage() {
     const topic = data.get('topic');  
     console.log(topic);
     try {
-      const res = await fetch('/getChatCompletion', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: [
-            {
-              "role": "system",
-              "content": "You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic\n\nThe JSON should include objects of lesson plans with content, exercises, and search terms\n"
-            },
-            {
-              "role": "user",
-              "content": "Artificial Intelligence"
-            }
-          ]
-        }),
+      const openai = new OpenAI({
+        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
       });
-      const data = await res.json();
-      setResponse(data);
+
+      const apiResponse = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            "role": "system",
+            "content": "You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic\n\nThe JSON should include objects of lesson plans with content, exercises, and search terms\n"
+          },
+          {
+            "role": "user",
+            "content": topic
+          }
+        ],
+        temperature: 1,
+        max_tokens: 256,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+      });
+    
+      console.log("response: ", apiResponse)
     } catch (error) {
       console.error('Error:', error);
     }
