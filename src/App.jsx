@@ -5,11 +5,13 @@ import './App.css'
 import RoadMap from './../components/RoadMap';
 import LandingPage from './../components/LandingPage';
 
-function App() {a
+function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
+      {/* <RoadMap /> */}
+      <div>HELLO WORLD</div>
       {/* <RoadMap />
       <LandingPage /> */}
     </div>
