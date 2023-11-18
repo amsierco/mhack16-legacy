@@ -1,5 +1,5 @@
 from openai import OpenAI
-client = OpenAI(api_key= "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")
+client = OpenAI(api_key= "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")
 outputString = "teach me how to juggle"
 Model = """ You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic.
 The JSON should include objects of lesson plans with content, exercises, and search terms.You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic
