@@ -4,15 +4,20 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import RoadMap from './../components/RoadMap';
 import LandingPage from './../components/LandingPage';
+import {BrowserRouter,Routes,Route} from "react-router-dom"; 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      {/* <RoadMap /> */}
-      <LandingPage />
-    </div>
+    <> 
+      <BrowserRouter> 
+      <Routes> 
+        <Route exact path="/" element={<LandingPage/>}/> 
+        <Route exact path="/roadmap" element={<RoadMap/>}/> 
+      </Routes> 
+      </BrowserRouter> 
+      </> 
   )
 }
 

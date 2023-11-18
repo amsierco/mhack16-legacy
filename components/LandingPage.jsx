@@ -13,12 +13,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import OpenAI from 'openai'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -35,29 +37,26 @@ export default function LandingPage() {
     console.log(topic);
     try {
       const openai = new OpenAI({
-        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4-1106-preview",
         messages: [
           {
             "role": "system",
-            "content": "You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic\n\nThe JSON should include objects of lesson plans with content, exercises, and search terms\n"
+            "content": 'You are a learning curriculum designer who creates a JSON with a multi-step plan on the best way to learn a provided topic. The JSON should include objects of lesson plans with content, explicit steps, exercises, search terms, and explicitly named resources and tools. Be sure to elaborate very much on the steps and always provide resources and tools. There should be a good number of lessons in the lesson plan and a good number of steps in each lesson.\n\nThis is how the json should look, but there should be more lessons, steps, descriptions, resources, tools, and exercises than is this example\n\nThis is how the json should look, but there should be more lessons, steps, descriptions, resources, tools, and exercises than is this example\n\n{\n  "topic": "Pixel Art",\n  "lessonPlans": [\n    {\n      "title": "title here",\n      "content": "Lesson description",\n      "steps": [\n        {\n          "stepNumber": 1,\n          "description": "step description",\n          "resources": [\n            "resources here"\n          ],\n          "tools":[\n            "various tools here"\n          ]\n        }\n      ],\n      "exercises": [\n        {\n          "description": "description of exercise",\n          "searchTerms": [\n            "various search terms here"\n          ]\n        }\n      ],\n    }\n  ]\n}'
           },
           {
             "role": "user",
             "content": topic
           }
-        ],
-        temperature: 1,
-        max_tokens: 256,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0,
+        ]
       });
     
-      console.log("response: ", apiResponse)
+      // console.log("response: ", apiResponse)
+      console.log("response: ", apiResponse.choices[0].message.content)
+      navigate('/roadmap'); // Navigate to the response page
     } catch (error) {
       console.error('Error:', error);
     }
