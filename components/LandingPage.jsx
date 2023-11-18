@@ -37,7 +37,7 @@ export default function LandingPage() {
     console.log(topic);
     try {
       const openai = new OpenAI({
-        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
