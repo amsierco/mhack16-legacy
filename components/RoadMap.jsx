@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'React';
 
 // Import css
 import './RoadMap';
@@ -7,8 +7,14 @@ import './RoadMap';
 const RoadMap = () => {
 
     return (
-        <div>
-            
+        <div className='roadmap-container'>
+            <h2>Your roadmap</h2>
+            <div className='node-container'>
+
+            </div>
+            <div className='practice-container'>
+
+            </div>
         </div>
     );
 }
