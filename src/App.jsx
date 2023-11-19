@@ -24,7 +24,7 @@ function App() {
 
     <LandingPage/>
     // <RoadMap lesson={firstLesson}/>
-    // <Page lesson={firstLesson}/>
+    // <Page lessonPlan={firstLesson}/>
   )
 }
 

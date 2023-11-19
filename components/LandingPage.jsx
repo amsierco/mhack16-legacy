@@ -78,7 +78,7 @@ export default function LandingPage() {
         <CircularProgress />
       ) : (
         <Box sx={{ textAlign: 'center', width: '100%', BackgroundColor: 'white'}}>
-          <Typography component="h2" variant="h2" marginBottom={5}>
+          <Typography component="h2" variant="h2" marginBottom={5} marginTop={5}>
             Enter a topic to learn about
           </Typography>
           <form onSubmit={handleSubmit}noValidate>
