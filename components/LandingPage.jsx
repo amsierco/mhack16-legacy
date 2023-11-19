@@ -15,10 +15,11 @@ import OpenAI from 'openai'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Stack } from 'react-bootstrap';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-const defaultTheme = createTheme();
+// const defaultTheme = createTheme();
 
 export default function LandingPage() {
   const [progress, setProgress] = React.useState(0);
@@ -86,17 +87,17 @@ export default function LandingPage() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+    // <ThemeProvider theme={defaultTheme}>
+      <Container maxWidth={false}>
         {/* <CssBaseline /> */}
-        <Box
+        {/* <Box
           sx={{
             marginTop: 8,
             display: 'flex',
-            flexDirection: 'column',
+            widows: 100,
             alignItems: 'center',
           }}
-        >
+        > */}
       {loading ? (
         <Box>
         <Typography component="h1" variant="h5">
@@ -108,7 +109,7 @@ export default function LandingPage() {
         
       ) : (
         <Box>
-          <Typography component="h1" variant="h5">
+          <Typography component="h6" variant="h2" marginBottom={5}>
              What do you want to learn?
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -122,25 +123,29 @@ export default function LandingPage() {
               varient="filled"
               autoFocus
             /> */}
+            <Stack>
             <TextField id="standard-basic" 
               name="topic"
               required
-              fullWidth
+              style = {{width: 1000, color: "white"}}
+              color='success'
+              size='large'
               autoFocus
               />
             <Button
               type="submit"
-              fullWidth
+              style = {{width: 500}}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Submit
             </Button>
+            </Stack>
           </Box>
         </Box>
       )}
-      </Box>
+      {/* </Box> */}
       </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
