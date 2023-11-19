@@ -44,7 +44,7 @@ export default function LandingPage() {
     try {
       const openai = new OpenAI({
         // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
-        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
