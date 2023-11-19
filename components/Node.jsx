@@ -1,20 +1,23 @@
-import React from 'react';
-
-// Import css
+import React, {useState, useEffect} from 'react';
 
 // Road map component
 const Node = ({lesson}) => {
-
     const title = lesson.title;
     const content = lesson.content;
-    const steps = lesson.steps;
+    const [hover, setHover] = useState(false);
+
+    useEffect(() => { 
+    }, [])
 
     return (
-        <>
-            <div>{lesson.id}</div>
-            <div>{lesson.title}</div>
-            <div>{lesson.data}</div>
-        </>
+        <div 
+            className='node-el' 
+            onMouseEnter={() => setHover(!hover)}
+            onMouseLeave={() => setHover(!hover)}
+        >
+            <h4>{title}</h4>
+            {hover ? <div>{content}</div> : null }
+        </div>
     );
 }
 
