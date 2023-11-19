@@ -10,15 +10,15 @@ const Node = ({lesson}) => {
 
     return (
         <div className='node-el'> {/* Load new info page */}
-        <div>{title}</div>
-        <div id='hover-content'>{content} </div>
+        {/* <div>{title}</div> */}
+        {/* <div id='hover-content'>{content} </div> */}
         {/* Alternative if we want content to be hover only */}
-        {/* <div 
+        <div 
             onMouseEnter={() => setHover(!hover)}
             onMouseLeave={() => setHover(!hover)}>
             {title}
         </div>
-        {hover ? <div id='hover-content'>{content}</div> : null } */}
+        {hover ? <div id='hover-content'>{content}</div> : null }
         </div>
     );
 }

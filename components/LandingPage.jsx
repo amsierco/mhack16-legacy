@@ -24,13 +24,12 @@ import jsonData from '../src/data.json'; // Import the JSON data
 
 // const defaultTheme = createTheme();
 
+const openai = new OpenAI({
+  // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
+  apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
+});
+
 export default function LandingPage() {
-
-  // const openai = new OpenAI({
-  //   apiKey: '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', // Use environment variable for security
-  //   dangerouslyAllowBrowser: true // Note: This is a security risk when used in client-side code
-  // });
-
   const checkStatusAndPrintMessages = async (threadId, runId) => {
       let runStatus = await openai.beta.threads.runs.retrieve(threadId, runId);
       if(runStatus.status === "completed"){
@@ -75,10 +74,6 @@ export default function LandingPage() {
     const topic = data.get('topic');  
     console.log(topic);
     try {
-      const openai = new OpenAI({
-        // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
-        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
-      });
 
       // const apiResponse = await openai.chat.completions.create({
       //   model: "gpt-4-1106-preview",
@@ -104,22 +99,26 @@ export default function LandingPage() {
       tools: [{ type: "retrieval" }],
       model: "gpt-4-1106-preview",
       });
+      console.log(assistant)
     
       const thread = await openai.beta.threads.create();
+      console.log(thread)
     
       const message = await openai.beta.threads.messages.create(thread.id, {
           role: "user",
           content: topic,
       });
+      console.log(message)
     
       const run = await openai.beta.threads.runs.create(thread.id, {
           assistant_id: assistant.id,
           instructions: "",    
       });
+      console.log(run)
 
       setTimeout(() => {
         checkStatusAndPrintMessages(thread.id, run.id)
-      }, 60000 );
+      }, 120000 );
       
     } catch (error) {
       console.error('Error:', error);
@@ -130,12 +129,33 @@ export default function LandingPage() {
     
     <Container maxWidth={false} marginLeft={0} className>
       {/* Removed the nested Box components */}
+      <Box justifyItems={"left"} color={'lightblue'}>
+        <Typography component="h5" variant="h5" marginBottom={5} marginTop={5}>
+            EduAI
+        </Typography>
+      </Box>
       {loading ? (
-        <CircularProgress />
+        <>
+        <Box marginTop={40}>
+        <CircularProgress size={200} />
+        </Box>
+        </>
       ) : (
-        <Box marginTop={80} marginLeft={0} sx={{ textAlign: 'left', width: '75%', BackgroundColor: 'white'}}>
-          <Typography component="h2" variant="h2" marginBottom={5} marginTop={5}>
-            Enter a topic to learn about
+        <Box marginTop={30} marginLeft={0} sx={{ textAlign: 'left', width: '75%', BackgroundColor: 'white'}}>
+          <Typography component="h6" variant="h6" marginBottom={2} marginTop={2}>
+            Cooking
+          </Typography>
+          <Typography component="h5" variant="h5" marginBottom={2} marginTop={2}>
+            Teach me about AI
+          </Typography>
+          <Typography component="h4" variant="h4" marginBottom={2} marginTop={2}>
+            How to play the guitar
+          </Typography>
+          <Typography component="h3" variant="h3" marginBottom={2} marginTop={2}>
+            Becoming a good soccer player
+          </Typography>
+          <Typography component="h2" variant="h2" marginBottom={5} marginTop={2}>
+            Enter a topic to learn about it ...
           </Typography>
           <form onSubmit={handleSubmit}noValidate>
             <TextField 
@@ -147,6 +167,7 @@ export default function LandingPage() {
               size='large'
               color='success'
               sx={{ mb: 2 }} // Add bottom margin
+              inputProps={{style: {fontSize: 40, color: "white"}}} // font size of input text
             />
             {/* <Button
               type="submit"

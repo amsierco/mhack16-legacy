@@ -26,13 +26,14 @@
     top: 0;
     left: 0;
 
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
+    /* border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem; */
+    border-radius: 2rem;
 
     text-align: left;
 
     width: 20%;
-    height: 100vh;
+    height: 50vh;
     padding: 0;
     border: 2px solid black;
     display: flex;
@@ -66,4 +67,23 @@
 /* Node-el hover */
 .node-el:hover {
     cursor: pointer;
+}
+/* CSS */
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+.roadmap-container {
+    padding-top: 10px;
+    width: 300px; /* Fixed width for the roadmap */
+    overflow-y: auto; /* Enable scrolling if content is long */
+    margin-top: 50px;
+}
+
+.page-container {
+    margin-top: 20px;
+    flex-grow: 1; /*Take the remaining space*/
+    height: 95%;
+    overflow-y: auto; /* Enable scrolling for the page */
 }
