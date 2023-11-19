@@ -1,43 +1,41 @@
 import React, {useState} from 'react';
 
+// Import components
+import Node from './Node';
+
 // Import css
 import './RoadMap.css';
 
 // Road map component
 const RoadMap = () => {
-    
-    const nodes = [
-        {
-            id: 1,
-            title: 'title',
-            data: 'data',
-        },
-        {
-            id: 2,
-            title: 'title2',
-            data: 'data2',
-        },
-        {
-            id: 3,
-            title: 'title3',
-            data: 'data3',
-        }
-    ]
 
-    // Array of lessons from API
-    // const [nodes, setnotes] = useState([]);
+    const json_data = { // Test data
+        lessons: [
+            {
+                id: 1,
+                title: 'title',
+                data: 'beans'
+            },
+            {
+                id: 1,
+                title: 'title',
+                data: 'beans'
+            }
+        ]
+    };
+    
 
     return (
         <div className='roadmap-container'>
             <h2>Your roadmap</h2>
-            <div className='node-wrapper'>
+            <div className='list-container'>
                 <ul>
-                {nodes.map(node => { /* Loop over all nodes and return node comp */
+                {json_data.lessons.map((lesson) => {
                     return (
-                        <li id={node.id}>
-                        <Node data={node}/>
+                        <li key={1}>
+                            <Node lesson={lesson} />
                         </li>
-                    )
+                    );
                 })}
                 </ul>
             </div>
