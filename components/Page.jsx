@@ -1,40 +1,44 @@
 import React from 'react';
 
-// Page Component to display a single lesson plan
 const Page = ({ lessonPlan }) => {
   return (
-    <div>
-      <h2>{lessonPlan.title}</h2>
-      <p>{lessonPlan.content}</p>
+    <div style={{ padding: '20px' }}>
+      <h2 style={{ textAlign: 'center' }}>{lessonPlan.title}</h2>
+      <hr />
+      <p style={{ textAlign: 'justify' }}>{lessonPlan.content}</p>
+      <hr />
       <h3>Steps:</h3>
-      <ol>
+      <ol style={{ listStyleType: 'none', paddingLeft: '0', textAlign: 'left'}}>
         {lessonPlan.steps.map((step, index) => (
-          <li key={index}>
-            {step.description}
-            {/* Optional: Display resources and tools here if needed */}
-            <div>
-              <h4>Resources:</h4>
-              <ul>
-                {Object.entries(step.resources).map(([name, url], resourceIndex) => (
-                  <li key={resourceIndex}><a href={url}>{name}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4>Tools:</h4>
-              <ul>
-                {Object.entries(step.tools).map(([name, url], toolIndex) => (
-                  <li key={toolIndex}><a href={url}>{name}</a></li>
-                ))}
-              </ul>
+          <li key={index} style={{ marginBottom: '20px' }}>
+            <div style={{ fontWeight: 'bold' }}>Step {index + 1}:</div>
+            <div style={{ marginLeft: '20px' }}>
+              <p>{step.description}</p>
+              <div>
+                <h4>Resources:</h4>
+                <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+                  {Object.entries(step.resources).map(([name, url], resourceIndex) => (
+                    <li key={resourceIndex}><a href={url}>{name}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4>Tools:</h4>
+                <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
+                  {Object.entries(step.tools).map(([name, url], toolIndex) => (
+                    <li key={toolIndex}><a href={url}>{name}</a></li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </li>
         ))}
       </ol>
+      <hr />
       <h3>Exercises:</h3>
-      <ul>
+      <ul style={{ listStyleType: 'none', paddingLeft: '0', textAlign: 'left' }}>
         {lessonPlan.exercises.map((exercise, index) => (
-          <li key={index}>{exercise.description}</li>
+          <li key={index} style={{ marginBottom: '20px' }}>{exercise.description}</li>
         ))}
       </ul>
     </div>

@@ -16,7 +16,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Stack } from 'react-bootstrap';
-
+// Import css
+import './LandingPage.css';
 // TODO remove, this demo shouldn't need to reset the theme.
 
 // const defaultTheme = createTheme();
@@ -44,7 +45,7 @@ export default function LandingPage() {
     try {
       const openai = new OpenAI({
         // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
-        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
@@ -71,16 +72,16 @@ export default function LandingPage() {
 
   return (
     
-    <Container maxWidth={false}>
+    <Container maxWidth={false} className>
       {/* Removed the nested Box components */}
       {loading ? (
         <CircularProgress />
       ) : (
-        <Box sx={{ textAlign: 'center', width: '100%' }}>
+        <Box sx={{ textAlign: 'center', width: '100%', BackgroundColor: 'white'}}>
           <Typography component="h2" variant="h2" marginBottom={5}>
             Enter a topic to learn about
           </Typography>
-          <form onSubmit={handleSubmit} noValidate>
+          <form onSubmit={handleSubmit}noValidate>
             <TextField 
               id="standard-basic" 
               name="topic"
