@@ -9,7 +9,6 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import jsonData from './data.json'; // Import the JSON data
 
 function App() {
-  const [count, setCount] = useState(0)
   const firstLesson = jsonData.lessonPlans[0]
 
   return (
@@ -20,11 +19,7 @@ function App() {
         <Route exact path="/roadmap" element={<RoadMap/>}/> 
       </Routes> 
       </BrowserRouter> 
-      </>
-
-    /*<LandingPage/>*///<RoadMap data={jsonData}/>
-    // <RoadMap data={jsonData}/>
-    // <Page lessonPlan={firstLesson}/>
+    </>
   )
 }
 
