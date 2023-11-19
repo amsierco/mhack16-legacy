@@ -13,16 +13,16 @@ function App() {
   const firstLesson = jsonData.lessonPlans[0]
 
   return (
-    // <> 
-    //   <BrowserRouter> 
-    //   <Routes> 
-    //     <Route exact path="/" element={<LandingPage/>}/> 
-    //     <Route exact path="/roadmap" element={<RoadMap/>}/> 
-    //   </Routes> 
-    //   </BrowserRouter> 
-    //   </>
+    <> 
+      <BrowserRouter> 
+      <Routes> 
+        <Route exact path="/" element={<LandingPage/>}/> 
+        <Route exact path="/roadmap" element={<RoadMap data={jsonData}/>}/> 
+      </Routes> 
+      </BrowserRouter> 
+      </>
 
-    <LandingPage/>
+    /*<LandingPage/>*///<RoadMap data={jsonData}/>
     // <RoadMap lesson={firstLesson}/>
     // <Page lesson={firstLesson}/>
   )
