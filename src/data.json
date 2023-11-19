@@ -1,160 +1,123 @@
 {
-    "topic": "Pixel Art",
-    "lessonPlans": [
-      {
-        "title": "Introduction to Pixel Art",
-        "content": "In this lesson, you will be introduced to the basics of pixel art and learn how to create simple pixel art designs.",
-        "steps": [
-          {
-            "stepNumber": 1,
-            "description": "Understand the concept of pixel art and its applications.",
-            "resources": [
-              "Pixel Art: A Beginner's Guide",
-              "The History of Pixel Art"
-            ],
-            "tools":[
-              "Graphics software such as Photoshop or GIMP",
-              "Pixel art tools like Piskel or Aseprite"
-            ]
+  "topic": "Pixel Art",
+  "lessonPlans": [
+    {
+      "title": "Introduction to Pixel Art",
+      "content": "In this lesson, you will be introduced to the basics of pixel art and learn how to create simple pixel art designs.",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "description": "Understand the concept of pixel art and its applications.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "stepNumber": 2,
-            "description": "Learn about different pixel art techniques and styles.",
-            "resources": [
-              "Pixel Art Techniques: Shading",
-              "Pixel Art Styles: Retro vs. Modern"
-            ],
-            "tools": []
-          },
-          {
-            "stepNumber": 3,
-            "description": "Practice sketching simple pixel art designs on grid paper.",
-            "resources": [],
-            "tools": [
-              "Grid paper",
-              "Pencil"
-            ]
+          "tools":{
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           }
-        ],
-        "exercises": [
-          {
-            "description": "Create a pixel art character using basic shapes and colors.",
-            "searchTerms": [
-              "pixel art character tutorial",
-              "pixel art color palette"
-            ]
+        },
+        {
+          "stepNumber": 2,
+          "description": "Learn about different pixel art techniques and styles.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "description": "Recreate a classic video game sprite using pixel art techniques.",
-            "searchTerms": [
-              "pixel art sprite tutorial",
-              "classic video game sprites"
-            ]
+          "tools": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
+         
           }
-        ]
-      },
-      {
-        "title": "Advanced Pixel Art Techniques",
-        "content": "In this lesson, you will learn more advanced techniques to enhance your pixel art skills and create more complex designs.",
-        "steps": [
-          {
-            "stepNumber": 1,
-            "description": "Explore dithering and anti-aliasing techniques in pixel art.",
-            "resources": [
-              "Dithering in Pixel Art",
-              "Anti-aliasing Techniques for Pixel Art"
-            ],
-            "tools":[]
+        },
+        {
+          "stepNumber": 3,
+          "description": "Practice sketching simple pixel art designs on grid paper.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "stepNumber": 2,
-            "description": "Learn about color theory and its application in pixel art.",
-            "resources": [
-              "Color Theory for Pixel Art",
-              "Choosing a Color Palette for Pixel Art"
-            ],
-            "tools": []
-          },
-          {
-            "stepNumber": 3,
-            "description": "Experiment with animation and create animated pixel art sprites.",
-            "resources": [
-              "Introduction to Pixel Art Animation",
-              "Creating Sprite Sheets"
-            ],
-            "tools": [
-              "Animation software like Aseprite",
-              "Sprite sheet organizing tools"
-            ]
+          "tools":{
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           }
-        ],
-        "exercises": [
-          {
-            "description": "Design and animate a pixel art scene with parallax scrolling effect.",
-            "searchTerms": [
-              "parallax scrolling in pixel art",
-              "pixel art scene tutorial",
-              "pixel art animation software"
-            ]
+        }
+      ],
+      "exercises": [
+        {
+          "description": "Create a pixel art character using basic shapes and colors.",
+          "searchTerms": [
+            "pixel art character tutorial",
+            "pixel art color palette"
+          ]
+        },
+        {
+          "description": "Recreate a classic video game sprite using pixel art techniques.",
+          "searchTerms": [
+            "pixel art sprite tutorial",
+            "classic video game sprites"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Advanced Pixel Art Techniques",
+      "content": "In this lesson, you will learn more advanced techniques to enhance your pixel art skills and create more complex designs.",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "description": "Explore dithering and anti-aliasing techniques in pixel art.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "description": "Create a pixel art logo with a limited color palette and dithering.",
-            "searchTerms": [
-              "pixel art logo tutorial",
-              "pixel art dithering techniques"
-            ]
+          "tools":{
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           }
-        ]
-      },
-      {
-        "title": "Creating Pixel Art Assets",
-        "content": "In this lesson, you will learn how to create pixel art assets for games or other digital projects.",
-        "steps": [
-          {
-            "stepNumber": 1,
-            "description": "Understand the requirements and limitations of pixel art assets in different digital platforms.",
-            "resources": [
-              "Pixel Art Asset Guidelines for Games",
-              "Pixel Art for Mobile Apps"
-            ],
-            "tools":[]
+        },
+        {
+          "stepNumber": 2,
+          "description": "Learn about color theory and its application in pixel art.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "stepNumber": 2,
-            "description": "Study different types of pixel art assets like characters, objects, and backgrounds.",
-            "resources": [
-              "Creating Pixel Art Characters",
-              "Designing Pixel Art Objects"
-            ],
-            "tools": []
-          },
-          {
-            "stepNumber": 3,
-            "description": "Practice creating pixel art assets for a specific project.",
-            "resources": [],
-            "tools": [
-              "Graphics software like Photoshop or GIMP",
-              "Pixel art asset creation tools"
-            ]
+          "tools": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           }
-        ],
-        "exercises": [
-          {
-            "description": "Design and create pixel art assets for a platformer game.",
-            "searchTerms": [
-              "pixel art platformer game assets",
-              "pixel art sprite sheet generator"
-            ]
+        },
+        {
+          "stepNumber": 3,
+          "description": "Experiment with animation and create animated pixel art sprites.",
+          "resources": {
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           },
-          {
-            "description": "Create pixel art backgrounds and tilesets for a top-down RPG game.",
-            "searchTerms": [
-              "pixel art RPG game assets",
-              "pixel art tileset tutorial"
-            ]
+          "tools":{
+            "Pixel Art: A Beginner's Guide": "http://google.com",
+            "The History of Pixel Art": "http://google.com"
           }
-        ]
-      }
-    ]
-   }
-   
+        }
+      ],
+      "exercises": [
+        {
+          "description": "Design and animate a pixel art scene with parallax scrolling effect.",
+          "searchTerms": [
+            "parallax scrolling in pixel art",
+            "pixel art scene tutorial",
+            "pixel art animation software"
+          ]
+        },
+        {
+          "description": "Create a pixel art logo with a limited color palette and dithering.",
+          "searchTerms": [
+            "pixel art logo tutorial",
+            "pixel art dithering techniques"
+          ]
+        }
+      ]
+    }
+  ]
+}

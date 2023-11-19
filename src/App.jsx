@@ -11,6 +11,7 @@ import jsonData from './data.json'; // Import the JSON data
 function App() {
   const [count, setCount] = useState(0)
   const firstLesson = jsonData.lessonPlans[0]
+  console.log(firstLesson)
 
   return (
     // <> 
@@ -22,9 +23,9 @@ function App() {
     //   </BrowserRouter> 
     //   </>
 
-    <LandingPage/>
+    // <LandingPage/>
     // <RoadMap lesson={firstLesson}/>
-    // <Page lesson={firstLesson}/>
+    <Page lessonPlan={firstLesson}/>
   )
 }
 
