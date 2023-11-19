@@ -9,7 +9,7 @@ const Node = ({lesson}) => {
     const navigate = useNavigate();
 
     return (
-        <div className='node-el' onClick={()=>navigate('/page',  { state: title })}> {/* Load new info page */}
+        <div className='node-el'> {/* Load new info page */}
         <div>{title}</div>
         <div id='hover-content'>{content} </div>
         {/* Alternative if we want content to be hover only */}
