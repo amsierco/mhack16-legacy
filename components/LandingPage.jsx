@@ -25,23 +25,6 @@ export default function LandingPage() {
   const [progress, setProgress] = React.useState(0);
   const [loading, setLoading] = useState(false);
 
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        console.log(loading)
-          if (oldProgress === 100) {
-            return 100;
-          }
-          const diff = Math.random() * 10;
-          return Math.min(oldProgress + diff, 100);
-      });
-    }, 500);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
   // const navigate = useNavigate();
   
   // const handleSubmit = (event) => {
@@ -87,65 +70,38 @@ export default function LandingPage() {
   };
 
   return (
-    // <ThemeProvider theme={defaultTheme}>
-      <Container maxWidth={false}>
-        {/* <CssBaseline /> */}
-        {/* <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            widows: 100,
-            alignItems: 'center',
-          }}
-        > */}
+    
+    <Container maxWidth={false}>
+      {/* Removed the nested Box components */}
       {loading ? (
-        <Box>
-        <Typography component="h1" variant="h5">
-        </Typography>
-        <Box sx={{ display: 'flex' }}>
-          <CircularProgress />
-        </Box>
-      </Box>
-        
+        <CircularProgress />
       ) : (
-        <Box>
-          <Typography component="h6" variant="h2" marginBottom={5}>
-             What do you want to learn?
+        <Box sx={{ textAlign: 'center', width: '100%' }}>
+          <Typography component="h2" variant="h2" marginBottom={5}>
+            Enter a topic to learn about
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            {/* <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="topic"
+          <form onSubmit={handleSubmit} noValidate>
+            <TextField 
+              id="standard-basic" 
               name="topic"
-              autoComplete="topic"
-              varient="filled"
+              required
+              fullWidth // Use fullWidth for responsive width
               autoFocus
-            /> */}
-            <Stack>
-            <TextField id="standard-basic" 
-              name="topic"
-              required
-              style = {{width: 1000, color: "white"}}
-              color='success'
               size='large'
-              autoFocus
-              />
+              color='success'
+              sx={{ mb: 2 }} // Add bottom margin
+            />
             <Button
               type="submit"
-              style = {{width: 500}}
+              fullWidth // Use fullWidth for responsive width
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3 }}
             >
               Submit
             </Button>
-            </Stack>
-          </Box>
+          </form>
         </Box>
       )}
-      {/* </Box> */}
-      </Container>
-    // </ThemeProvider>
+    </Container>
   );
 }
