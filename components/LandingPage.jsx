@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import OpenAI from 'openai'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -41,7 +41,7 @@ export default function LandingPage() {
     };
   }, []);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -79,7 +79,7 @@ export default function LandingPage() {
     
       // console.log("response: ", apiResponse)
       console.log("response: ", apiResponse.choices[0].message.content)
-      navigate('/roadmap',  { state: apiResponse.choices[0].message.content }); // Navigate to the response page
+      // navigate('/roadmap',  { state: apiResponse.choices[0].message.content }); // Navigate to the response page
     } catch (error) {
       console.error('Error:', error);
     }
@@ -88,7 +88,7 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Box
           sx={{
             marginTop: 8,
@@ -100,10 +100,9 @@ export default function LandingPage() {
       {loading ? (
         <Box>
         <Typography component="h1" variant="h5">
-           Loading...
         </Typography>
-        <Box sx={{ width: '100%' }}>
-          <LinearProgress variant="determinate" value={progress} />
+        <Box sx={{ display: 'flex' }}>
+          <CircularProgress />
         </Box>
       </Box>
         
@@ -113,15 +112,22 @@ export default function LandingPage() {
              What do you want to learn?
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
+            {/* <TextField
               margin="normal"
               required
               fullWidth
               id="topic"
               name="topic"
               autoComplete="topic"
+              varient="filled"
               autoFocus
-            />
+            /> */}
+            <TextField id="standard-basic" 
+              name="topic"
+              required
+              fullWidth
+              autoFocus
+              />
             <Button
               type="submit"
               fullWidth
