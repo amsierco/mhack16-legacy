@@ -7,40 +7,18 @@ import Node from './Node';
 import './RoadMap.css';
 
 // Road map component
-const RoadMap = () => {
-
-    const json_data = { // Test data
-        lessons: [
-            {
-                id: 1,
-                title: 'title',
-                data: 'beans'
-            },
-            {
-                id: 1,
-                title: 'title',
-                data: 'beans'
-            }
-        ]
-    };
-    
-
+const RoadMap = ({data}) => {
     return (
         <div className='roadmap-container'>
             <h2>Your roadmap</h2>
             <div className='list-container'>
-                <ul>
-                {json_data.lessons.map((lesson) => {
+                {data.lessonPlans.map((lesson) => {
                     return (
-                        <li key={1}>
+                        <div key={lesson.title} id='list'>
                             <Node lesson={lesson} />
-                        </li>
+                        </div>
                     );
                 })}
-                </ul>
-            </div>
-            <div className='practice-container'>
-
             </div>
         </div>
     );

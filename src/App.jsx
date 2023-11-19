@@ -22,7 +22,8 @@ function App() {
     //   </BrowserRouter> 
     //   </>
 
-    <LandingPage/>
+    //<LandingPage/> 
+    <RoadMap data={jsonData} />
     // <RoadMap lesson={firstLesson}/>
     // <Page lesson={firstLesson}/>
   )
