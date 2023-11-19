@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 // Import css
 
 // Road map component
-const Node = ({data}) => {
+const Node = ({lesson}) => {
+
+    const title = lesson.title;
+    const content = lesson.content;
+    const steps = lesson.steps;
 
     return (
-        <div className='node-container'>
-            <div>data.id</div>
-            <div>data.title</div>
-            <div>data.data</div>
-        </div>
+        <>
+            <div>{lesson.id}</div>
+            <div>{lesson.title}</div>
+            <div>{lesson.data}</div>
+        </>
     );
 }
 
