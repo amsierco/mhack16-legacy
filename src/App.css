@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: rgb(241,177,109);
+  background: linear-gradient(90deg, rgba(241,177,109,0.9025735294117647) 0%, rgba(187,124,206,0.8353466386554622) 50%, rgba(71,193,202,1) 100%); 
+
 }
 
 .logo {
