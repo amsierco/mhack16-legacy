@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,12 +14,33 @@ import Container from '@mui/material/Container';
 import OpenAI from 'openai'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import LinearProgress from '@mui/material/LinearProgress';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function LandingPage() {
+  const [progress, setProgress] = React.useState(0);
+  const [loading, setLoading] = useState(false);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        console.log(loading)
+          if (oldProgress === 100) {
+            return 100;
+          }
+          const diff = Math.random() * 10;
+          return Math.min(oldProgress + diff, 100);
+      });
+    }, 500);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
   const navigate = useNavigate();
   
   // const handleSubmit = (event) => {
@@ -32,12 +53,14 @@ export default function LandingPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true)
     const data = new FormData(event.currentTarget);
     const topic = data.get('topic');  
     console.log(topic);
     try {
       const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
+        // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
@@ -56,7 +79,7 @@ export default function LandingPage() {
     
       // console.log("response: ", apiResponse)
       console.log("response: ", apiResponse.choices[0].message.content)
-      navigate('/roadmap'); // Navigate to the response page
+      navigate('/roadmap',  { state: apiResponse.choices[0].message.content }); // Navigate to the response page
     } catch (error) {
       console.error('Error:', error);
     }
@@ -74,6 +97,18 @@ export default function LandingPage() {
             alignItems: 'center',
           }}
         >
+      {loading ? (
+        <Box>
+        <Typography component="h1" variant="h5">
+           Loading...
+        </Typography>
+        <Box sx={{ width: '100%' }}>
+          <LinearProgress variant="determinate" value={progress} />
+        </Box>
+      </Box>
+        
+      ) : (
+        <Box>
           <Typography component="h1" variant="h5">
              What do you want to learn?
           </Typography>
@@ -97,6 +132,8 @@ export default function LandingPage() {
             </Button>
           </Box>
         </Box>
+      )}
+      </Box>
       </Container>
     </ThemeProvider>
   );
