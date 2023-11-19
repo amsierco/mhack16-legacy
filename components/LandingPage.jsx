@@ -152,7 +152,7 @@ export default function LandingPage() {
               type="submit"
               fullWidth // Use fullWidth for responsive width
               variant="contained"
-              sx={{ mt: 3 }}
+              sx={{ mb: 2, outline: 'none' }}
             >
               Submit
             </Button>
