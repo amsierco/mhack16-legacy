@@ -10,7 +10,7 @@ import './RoadMap.css';
 const RoadMap = ({data}) => {
     return (
         <div className='roadmap-container'>
-            <h2>Your roadmap</h2>
+            <div id='title'>Your roadmap</div>
             <div className='list-container'>
                 {data.lessonPlans.map((lesson) => {
                     return (

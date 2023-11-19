@@ -1,22 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 // Road map component
 const Node = ({lesson}) => {
     const title = lesson.title;
     const content = lesson.content;
     const [hover, setHover] = useState(false);
-
-    useEffect(() => { 
-    }, [])
+    const navigate = useNavigate();
 
     return (
-        <div 
-            className='node-el' 
+        <div className='node-el' onClick={()=>navigate('/page',  { state: title })}> {/* Load new info page */}
+        <div>{title}</div>
+        <div id='hover-content'>{content} </div>
+        {/* Alternative if we want content to be hover only */}
+        {/* <div 
             onMouseEnter={() => setHover(!hover)}
-            onMouseLeave={() => setHover(!hover)}
-        >
-            <h4>{title}</h4>
-            {hover ? <div>{content}</div> : null }
+            onMouseLeave={() => setHover(!hover)}>
+            {title}
+        </div>
+        {hover ? <div id='hover-content'>{content}</div> : null } */}
         </div>
     );
 }
