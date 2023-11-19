@@ -2,7 +2,7 @@ import React from 'react';
 
 const Page = ({ lessonPlan }) => {
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ marginTop: '20px', marginLeft: '180px' }}>
       <h2 style={{ textAlign: 'center' }}>{lessonPlan.title}</h2>
       <hr />
       <p style={{ textAlign: 'justify' }}>{lessonPlan.content}</p>

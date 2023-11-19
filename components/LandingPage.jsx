@@ -26,10 +26,10 @@ import jsonData from '../src/data.json'; // Import the JSON data
 
 export default function LandingPage() {
 
-  const openai = new OpenAI({
-    apiKey: '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', // Use environment variable for security
-    dangerouslyAllowBrowser: true // Note: This is a security risk when used in client-side code
-  });
+  // const openai = new OpenAI({
+  //   apiKey: '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', // Use environment variable for security
+  //   dangerouslyAllowBrowser: true // Note: This is a security risk when used in client-side code
+  // });
 
   const checkStatusAndPrintMessages = async (threadId, runId) => {
       let runStatus = await openai.beta.threads.runs.retrieve(threadId, runId);
@@ -128,12 +128,12 @@ export default function LandingPage() {
 
   return (
     
-    <Container maxWidth={false} className>
+    <Container maxWidth={false} marginLeft={0} className>
       {/* Removed the nested Box components */}
       {loading ? (
         <CircularProgress />
       ) : (
-        <Box sx={{ textAlign: 'center', width: '100%', BackgroundColor: 'white'}}>
+        <Box marginTop={80} marginLeft={0} sx={{ textAlign: 'left', width: '75%', BackgroundColor: 'white'}}>
           <Typography component="h2" variant="h2" marginBottom={5} marginTop={5}>
             Enter a topic to learn about
           </Typography>
@@ -148,14 +148,14 @@ export default function LandingPage() {
               color='success'
               sx={{ mb: 2 }} // Add bottom margin
             />
-            <Button
+            {/* <Button
               type="submit"
               fullWidth // Use fullWidth for responsive width
               variant="contained"
               sx={{ mb: 2, outline: 'none' }}
             >
               Submit
-            </Button>
+            </Button> */}
           </form>
         </Box>
       )}

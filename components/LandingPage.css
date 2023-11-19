@@ -1,12 +1,12 @@
 #root{
-    background: rgb(247,197,144);
-    background: linear-gradient(148deg, rgba(247,197,144,0.9025735294117647) 0%, rgba(214,172,227,0.8353466386554622) 50%, rgba(151,231,237,1) 100%);
+    /* background: rgb(247,197,144); */
+    /* background: linear-gradient(148deg, rgba(247,197,144,0.9025735294117647) 0%, rgba(214,172,227,0.8353466386554622) 50%, rgba(151,231,237,1) 100%); */
     overflow: hidden;
 }
 
 .background{
-    background: rgb(241,177,109);
-    background: linear-gradient(90deg, rgba(241,177,109,0.9025735294117647) 0%, rgba(187,124,206,0.8353466386554622) 50%, rgba(71,193,202,1) 100%);
+    /* background: rgb(241,177,109); */
+    /* background: linear-gradient(90deg, rgba(241,177,109,0.9025735294117647) 0%, rgba(187,124,206,0.8353466386554622) 50%, rgba(71,193,202,1) 100%); */
 }
 
 input[type=text]{
