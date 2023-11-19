@@ -17,13 +17,13 @@ function App() {
       <BrowserRouter> 
       <Routes> 
         <Route exact path="/" element={<LandingPage/>}/> 
-        <Route exact path="/roadmap" element={<RoadMap data={jsonData}/>}/> 
+        <Route exact path="/roadmap" element={<RoadMap/>}/> 
       </Routes> 
       </BrowserRouter> 
       </>
 
     /*<LandingPage/>*///<RoadMap data={jsonData}/>
-    // <RoadMap lesson={firstLesson}/>
+    // <RoadMap data={jsonData}/>
     // <Page lessonPlan={firstLesson}/>
   )
 }

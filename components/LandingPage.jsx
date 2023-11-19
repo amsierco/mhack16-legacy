@@ -26,7 +26,7 @@ export default function LandingPage() {
   const [progress, setProgress] = React.useState(0);
   const [loading, setLoading] = useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -45,7 +45,7 @@ export default function LandingPage() {
     try {
       const openai = new OpenAI({
         // apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
-        apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true // This is a security risk
+        apiKey: "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", dangerouslyAllowBrowser: true // This is a security risk
       });
 
       const apiResponse = await openai.chat.completions.create({
@@ -63,8 +63,8 @@ export default function LandingPage() {
       });
     
       // console.log("response: ", apiResponse)
-      console.log("response: ", apiResponse.choices[0].message.content)
-      // navigate('/roadmap',  { state: apiResponse.choices[0].message.content }); // Navigate to the response page
+      // console.log("response: ", apiResponse.choices[0].message.content)
+      navigate('/roadmap',  { state: apiResponse.choices[0].message.content }); // Navigate to the response page
     } catch (error) {
       console.error('Error:', error);
     }
